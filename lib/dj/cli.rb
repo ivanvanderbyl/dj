@@ -4,7 +4,7 @@ module DJ
 
     desc 'start', 'Start looking for servers'
     def start
-      puts "Starting..."
+      DJ::Browser.new
     end
 
   end

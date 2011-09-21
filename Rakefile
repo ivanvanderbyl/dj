@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Dj::Application.load_tasks
+DJ::Application.load_tasks
