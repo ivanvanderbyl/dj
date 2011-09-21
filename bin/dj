@@ -11,4 +11,8 @@ require 'dj/cli'
 
 ARGV[0] = ['dj', ARGV[0]].compact.join(':')
 
+Thread.abort_on_exception = true
+trap 'INT' do exit end
+trap 'TERM' do exit end
+
 Thor::Runner.start
