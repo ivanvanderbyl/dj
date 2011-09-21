@@ -1,3 +1,9 @@
 class Song < ActiveRecord::Base
-  belongs_to :server
+  has_many :tracks
+  has_many :libraries, :through => :tracks
+
+  def to_s
+    "#{artist} [#{album}] - #{name}"
+  end
+
 end

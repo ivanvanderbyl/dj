@@ -8,9 +8,12 @@ class UpdateSongsTable < ActiveRecord::Migration
       t.string  'artist'
       t.string  'album'
       t.string  'name'
-      t.integer 'year'
-      t.integer 'duration'
-      t.integer :bitrate
+      t.integer 'year', :default => 0
+      t.integer 'duration', :default => 0
+      t.integer  "track_number", :default => 0
+      t.integer  "track_count", :default => 0
+      t.integer  "disc_number", :default => 0
+      t.integer  "disc_count", :default => 0
       t.timestamps
     end
   end

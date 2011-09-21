@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110921083227) do
+ActiveRecord::Schema.define(:version => 20110921084250) do
+
+  create_table "libraries", :force => true do |t|
+    t.string   "url",         :default => "http://localhost:1337", :null => false
+    t.string   "name"
+    t.boolean  "online",      :default => false
+    t.datetime "imported_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "servers", :force => true do |t|
     t.string   "hostname",                      :null => false
@@ -29,6 +38,15 @@ ActiveRecord::Schema.define(:version => 20110921083227) do
     t.integer  "year"
     t.integer  "duration"
     t.integer  "bitrate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tracks", :force => true do |t|
+    t.integer  "library_id",                              :null => false
+    t.integer  "song_id",                                 :null => false
+    t.integer  "bit_rate",                 :default => 0
+    t.string   "kind",       :limit => 16
     t.datetime "created_at"
     t.datetime "updated_at"
   end
