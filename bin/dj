@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+$: << 'lib'
+
+require 'bundler'
+Bundler.setup
+
+require 'thor/runner'
+require 'dj/cli'
+
+ARGV[0] = ['dj', ARGV[0]].compact.join(':')
+
+Thor::Runner.start
