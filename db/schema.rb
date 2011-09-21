@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110921073143) do
+ActiveRecord::Schema.define(:version => 20110921083227) do
 
   create_table "servers", :force => true do |t|
     t.string   "hostname",                      :null => false
@@ -22,11 +22,13 @@ ActiveRecord::Schema.define(:version => 20110921073143) do
   end
 
   create_table "songs", :force => true do |t|
-    t.integer  "server_id",                        :null => false
-    t.string   "name",                             :null => false
-    t.string   "status",     :default => "queued"
-    t.string   "url"
-    t.datetime "played_at"
+    t.string   "file_location"
+    t.string   "artist"
+    t.string   "album"
+    t.string   "name"
+    t.integer  "year"
+    t.integer  "duration"
+    t.integer  "bitrate"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
