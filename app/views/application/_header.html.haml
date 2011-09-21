@@ -1,0 +1,8 @@
+%header
+  .topbar
+    .topbar-inner
+      .container
+        %h3= link_to "DJJour"
+
+        = form_for :request, :url => '/request', :class_name => 'pull-left' do |f|
+          = f.text_field :song, :placeholder => 'Enter a Song title, Artist or Album name', :style => 'width: 400px'
