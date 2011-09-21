@@ -21,6 +21,8 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'eventmachine'
 gem 'djjour', :git => 'git://github.com/geelen/djjour.git'
+gem 'rest-client'
+gem 'hashie'
 
 # gem 'inherited_resources'
 # Use unicorn as the web server
@@ -36,4 +38,5 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'rspec-rails', '~>2.6'
+  gem 'mocha'
 end
