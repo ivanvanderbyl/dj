@@ -1,4 +1,4 @@
-DJ::Application.routes.draw do
+Dj::Application.routes.draw do
   root :to => "playlist#index"
 
   # resource :songs do

@@ -1,7 +1,7 @@
 require 'dnssd'
 require File.expand_path('../../../config/environment', __FILE__)
 
-module DJ
+module Dj
   class Browser
 
     def initialize
