@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110921084250) do
+ActiveRecord::Schema.define(:version => 20110921134224) do
 
   create_table "libraries", :force => true do |t|
     t.string   "url",         :default => "http://localhost:1337", :null => false
@@ -43,12 +43,17 @@ ActiveRecord::Schema.define(:version => 20110921084250) do
   end
 
   create_table "tracks", :force => true do |t|
-    t.integer  "library_id",                              :null => false
-    t.integer  "song_id",                                 :null => false
-    t.integer  "bit_rate",                 :default => 0
-    t.string   "kind",       :limit => 16
+    t.integer  "library_id",                                 :null => false
+    t.integer  "song_id"
+    t.integer  "bit_rate",                    :default => 0
+    t.string   "kind",          :limit => 16
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "persistent_id"
+    t.integer  "guid"
   end
+
+  add_index "tracks", ["guid"], :name => "index_tracks_on_guid"
+  add_index "tracks", ["persistent_id"], :name => "index_tracks_on_persistent_id", :unique => true
 
 end
