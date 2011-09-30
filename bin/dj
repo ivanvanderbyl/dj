@@ -2,6 +2,18 @@
 
 $: << 'lib'
 
+def close
+  puts "EXIT"
+  exit
+end
+
+trap('INT') {
+  close
+}
+trap('TERM') {
+  close
+}
+
 require 'bundler'
 Bundler.setup
 
@@ -11,8 +23,5 @@ require 'dj/cli'
 
 ARGV[0] = ['dj', ARGV[0]].compact.join(':')
 
-Thread.abort_on_exception = true
-trap 'INT' do exit end
-trap 'TERM' do exit end
-
+# Thread.abort_on_exception = true
 Thor::Runner.start
