@@ -3,9 +3,10 @@ Dj::Application.routes.draw do
 
   resources :playlists, :controller => 'playlist' do
     collection do
-      get :request
       get :search
     end
   end
+
+  resources :requests, :controller => 'playlist'
 
 end

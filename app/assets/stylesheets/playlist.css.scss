@@ -15,21 +15,20 @@ header {
   &.ui-autocomplete.ui-menu {
     padding-top: 3px;
     padding-bottom: 3px;
-    background-color: black;
-    background: rgba(black, 0.8);
-    @include box-shadow(rgba(black, 0.3) 0 1px 3px 0);
-    color: lighten(black, 30%);
+    background-color: white;
+    background: rgba(white, 0.8);
+    @include box-shadow(rgba(black, 0.4) 0 2px 5px 0);
+    color: darken(white, 30%);
     border: none;
 
     .ui-menu-item a {
       border: none;
-      color: darken(white, 10%);
+      color: lighten(black, 20%);
       border-radius: 0px;
       @include border-radius(0px);
       display: block;
-      padding: 0 10px;
-      border-bottom: 1px solid lighten(black, 30%);
-
+      padding: 5 10px;
+      border-top: 1px solid lighten(black, 90%);
       &.ui-state-hover {
         margin: 0;
         color: white;
@@ -42,10 +41,16 @@ header {
   }
 
   a.song-result {
+    line-height: 1.2em;
     span {
       &.song {
         display: block;
         font-weight: bold;
+      }
+
+      &.artist,
+      &.album {
+        font-size: 11px;
       }
     }
   }

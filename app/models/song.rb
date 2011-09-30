@@ -1,6 +1,7 @@
 class Song < ActiveRecord::Base
   has_many :tracks
   has_many :libraries, :through => :tracks
+  has_many :requests
 
   def to_s
     "#{artist} [#{album}] - #{name}"
@@ -39,7 +40,7 @@ class Song < ActiveRecord::Base
     super if options.present?
 
     {
-      :id => id,
+      :song_id => id,
       :label => name,
       :artist => artist,
       :value => id,

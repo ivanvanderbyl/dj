@@ -6,6 +6,7 @@ class Dj.Views.SearchView extends Backbone.View
     @render()
 
   render: ->
+    self = @
     $(@el).append(@template())
 
     input = @$('input[type="search"]')
@@ -14,17 +15,20 @@ class Dj.Views.SearchView extends Backbone.View
       source: '/playlists/search'
       minLength: 0
       focus: (event, ui) ->
-          input.val ui.item.label
-          false
+        input.val ui.item.label
+        false
 
       select: (event, ui) ->
-          console.log(ui.item)
-          # $("#project").val ui.item.label
-          # $("#project-id").val ui.item.value
-          # $("#project-description").html ui.item.desc
-          # $("#project-icon").attr "src", "images/" + ui.item.icon
-          false
+        self.makeRequest(ui.item)
+        false
 
     input.data("autocomplete")._renderItem = (ul, item) ->
       result_template = JST["backbone/templates/search/result_item"](item)
       $("<li></li>").data("item.autocomplete", item).append(result_template).appendTo ul
+
+  makeRequest: (item) ->
+    model = new Dj.Models.Request(item)
+    console.log model.attributes
+
+    c = new Dj.Models.RequestCollection
+    c.create request: model

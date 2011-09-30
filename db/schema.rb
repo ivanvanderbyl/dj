@@ -11,13 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930002311) do
+ActiveRecord::Schema.define(:version => 20110930071640) do
 
   create_table "libraries", :force => true do |t|
     t.string   "url",         :default => "http://localhost:1337", :null => false
     t.string   "name"
     t.boolean  "online",      :default => false
     t.datetime "imported_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "requests", :force => true do |t|
+    t.integer  "song_id"
+    t.integer  "votes",      :default => 0
+    t.datetime "played_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
