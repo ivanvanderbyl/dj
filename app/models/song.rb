@@ -6,6 +6,12 @@ class Song < ActiveRecord::Base
     "#{artist} [#{album}] - #{name}"
   end
 
+  define_index do
+    indexes name, :sortable => true
+    indexes artist, :sortable => true
+    indexes album, :sortable => true
+  end
+
   def download
     transfer_file
   end
@@ -26,6 +32,18 @@ class Song < ActiveRecord::Base
   def locate_best_track
     tracks.sort { |a,b| b <=> a }.find { |track|
       track.library.online?
+    }
+  end
+
+  def as_json(options = nil)
+    super if options.present?
+
+    {
+      :id => id,
+      :label => name,
+      :artist => artist,
+      :value => id,
+      :album => album
     }
   end
 

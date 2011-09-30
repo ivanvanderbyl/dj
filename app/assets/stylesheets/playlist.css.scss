@@ -1,3 +1,48 @@
 // Place all the styles related to the playlist controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "compass/css3";
+@import "compass/utilities";
+
+header {
+  input[type="search"] {
+    margin-top: 0.4em;
+  }
+}
+
+.ui-widget {
+  &.ui-autocomplete.ui-menu {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: black;
+    background: rgba(black, 0.8);
+    @include box-shadow(rgba(black, 0.3) 0 1px 3px 0);
+    color: lighten(black, 30%);
+    border: none;
+
+    .ui-menu-item a {
+      border: none;
+      color: darken(white, 10%);
+      border-radius: 0px;
+      @include border-radius(2px);
+      display: block;
+      padding: 0 10px;
+
+      &.ui-state-hover {
+        margin: 0;
+        color: white;
+        background: #FF0C50;
+        border: none;
+        @include background(linear-gradient(#0085FF, darken(#0085FF, 15%)));
+      }
+    }
+  }
+}
+
+header {
+  height: 52px;
+  @include clearfix;
+  position: relative;
+  display: block;
+}
