@@ -10,5 +10,8 @@
 //= require ./vendor/jquery_ui
 //= require underscore
 //= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require handlebars
+//= require backbone/dj
 //= require playlist
-

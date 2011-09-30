@@ -9,3 +9,9 @@ window.Dj =
   Collections: {}
   Routers: {}
   Views: {}
+
+  init: ->
+    
+
+$ ->
+  Dj.init()

@@ -24,6 +24,7 @@ gem 'thinking-sphinx',
   :branch => 'rails3'
 
 gem 'rails-backbone', '~>0.5.4'
+gem 'handlebars_assets'
 
 # gem 'inherited_resources'
 # Use unicorn as the web server
