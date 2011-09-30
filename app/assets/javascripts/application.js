@@ -14,4 +14,3 @@
 //= require backbone_datalink
 //= require handlebars
 //= require backbone/dj
-//= require playlist

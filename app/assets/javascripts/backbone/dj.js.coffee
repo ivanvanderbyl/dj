@@ -11,7 +11,7 @@ window.Dj =
   Views: {}
 
   init: ->
-    
+    Dj.header = new Dj.Views.SearchView
 
 $ ->
   Dj.init()

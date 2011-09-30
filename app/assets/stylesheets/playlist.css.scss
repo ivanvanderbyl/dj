@@ -25,16 +25,27 @@ header {
       border: none;
       color: darken(white, 10%);
       border-radius: 0px;
-      @include border-radius(2px);
+      @include border-radius(0px);
       display: block;
       padding: 0 10px;
+      border-bottom: 1px solid lighten(black, 30%);
 
       &.ui-state-hover {
         margin: 0;
         color: white;
         background: #FF0C50;
         border: none;
+        border-bottom: 1px solid darken(#0085FF, 16%);
         @include background(linear-gradient(#0085FF, darken(#0085FF, 15%)));
+      }
+    }
+  }
+
+  a.song-result {
+    span {
+      &.song {
+        display: block;
+        font-weight: bold;
       }
     }
   }
