@@ -7,21 +7,21 @@ class Library < ActiveRecord::Base
 
     if service.flags.add?
       DNSSD::Service.new.resolve service do |r|
-        if r.domain == 'local'
-          library.update_attribute(:url, url_for_hostname(r.target, r.port))
+        # puts service.domain
+        uri = URI.parse("http://#{r.target}:#{r.port}")
+        puts uri.host
+
+        if uri.host =~ /\.local\.?$/
+          library.update_attribute(:url, uri.to_s)
+          
+          library.update_attribute(:online, true)
+          library.import
         end
         break unless r.flags.more_coming?
       end
-
-      library.update_attribute(:online, true)
-      library.import
     else
       library.update_attribute(:online, false)
     end
-  end
-
-  def self.url_for_hostname(hostname, port)
-    "http://#{hostname}:#{port}"
   end
 
   def load_json
@@ -30,6 +30,7 @@ class Library < ActiveRecord::Base
   end
 
   def import
+    print "Importing library from #{url}..."
     library_hash = load_json
     tracks_array = library_hash['tracks'].map { |track|
       track = sanitize_keys(track)
@@ -46,7 +47,10 @@ class Library < ActiveRecord::Base
       track.save!
     end
 
-    puts "Imported #{tracks.count} tracks from #{url}"
+    puts "Done. Imported #{tracks.count} tracks."
+  rescue Errno::ETIMEDOUT => e
+    puts "ERROR: Connection timed out"
+    update_attribute(:online, false)
   end
 
   def online?
