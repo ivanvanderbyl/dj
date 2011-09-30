@@ -1,5 +1,8 @@
-.alert-message.alert-box.info
-  %a.close{:href => '#'} x
-  No songs in playlist, be the first to add something.
-  
-  
+:javascript
+  var requests = $.parseJSON("#{escape_javascript(@playlist.to_json)}");
+
+/ .alert-message.alert-box.info
+/   %a.close{:href => '#'} x
+/   No songs in playlist, be the first to add something.
+/   
+/   

@@ -1,0 +1,14 @@
+<table class="zebra-striped">
+  <tr>
+    <th>Song</th>
+    <th>Artist</th>
+    <th>Album</th>
+  </tr>
+  {{#each requests}}
+  <tr>
+    <td>{{song.name}}</td>
+    <td>{{song.artist}}</td>
+    <td>{{song.album}}</td>
+  </tr>
+  {{/each}}
+</table>
