@@ -1,0 +1,13 @@
+//= require ./jquery_ui/jquery.ui.core
+//= require ./jquery_ui/jquery.ui.widget
+//= require ./jquery_ui/jquery.ui.position
+//= require ./jquery_ui/jquery.effects.core
+//= require ./jquery_ui/jquery.effects.blind
+//= require ./jquery_ui/jquery.effects.bounce
+//= require ./jquery_ui/jquery.effects.clip
+//= require ./jquery_ui/jquery.effects.drop
+//= require ./jquery_ui/jquery.effects.explode
+//= require ./jquery_ui/jquery.effects.fade
+//= require ./jquery_ui/jquery.effects.fold
+//= require ./jquery_ui/jquery.effects.highlight
+//= require ./jquery_ui/jquery.ui.autocomplete
